@@ -56,5 +56,19 @@ namespace Anagrams.Tests
       char[] testOutput4 = testMonkey4.SortBaseArray("FERRET");
       CollectionAssert.AreEqual(FerretArray2, testOutput4);
     }
+    [TestMethod]
+    public void SetComparisonWords_AreSorted_True()
+    {
+      List<char[]> newList = new List<char[]>(){new char[]{'a','b','c'}, new char[]{'d','e','f'}};
+      List<string> testList = new List<string>(){"CAB","FED"};
+      Anagram newAnagram = new Anagram();
+      newAnagram.SetComparisonWords(testList);
+      List<char[]> finalList = newAnagram.GetComparisonWords();
+      Console.WriteLine(newList[0]);
+      CollectionAssert.AreEqual(newList[0], finalList[0]);
+      CollectionAssert.AreEqual(newList[1], finalList[1]);
+
+    }
+
   }
 }

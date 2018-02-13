@@ -7,7 +7,7 @@ namespace Anagrams.Models
     public class Anagram
     {
       private string _baseWord;
-      private List<string> _comparisonWords;
+      private List<char[]> _comparisonWords;
 
       // public Anagram(string baseWord, List<string> comparisonWords)
       // {
@@ -25,13 +25,19 @@ namespace Anagrams.Models
         return _baseWord;
       }
 
-      public List<string> SetComparisonWords(List<string> newComparisonWords)
+      public List<char[]> SetComparisonWords(List<string> ComparisonWords)
       {
-        _comparisonWords = newComparisonWords;
-        return _comparisonWords;
-      }
+        List<char[]> newComparisonWords = new List<char[]>();
+        foreach(string word in ComparisonWords){
+          char[] cleanedWord = word.ToLower().ToCharArray();
+          Array.Sort(cleanedWord);
+          newComparisonWords.Add(cleanedWord);
+        }
+          _comparisonWords = newComparisonWords;
+          return _comparisonWords;
+       }
 
-      public List<string> GetComparisonWords()
+      public List<char[]> GetComparisonWords()
       {
         return _comparisonWords;
       }
@@ -53,7 +59,10 @@ namespace Anagrams.Models
         char[] BaseWordArray = baseWord.ToLower().ToCharArray();
         Array.Sort(BaseWordArray);
         return BaseWordArray;
+
       }
+
+
     }
 
 }
