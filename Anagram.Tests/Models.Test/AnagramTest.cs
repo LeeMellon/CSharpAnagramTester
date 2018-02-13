@@ -8,19 +8,17 @@ namespace Anagrams.Tests
   [TestClass]
   public class AnagramTest
   {
-    // public void Dispose()
-    // {
-    //     Anagram.ClearAll();
-    // }
+
 
     [TestMethod]
-    public void  BaseToArray_MakeArray_False()
+    public void  BaseToArray_CompareWord_True()
     {
       Anagram testMonkey = new Anagram();
       testMonkey.SetBaseWord("Turkey");
       string testOutput = testMonkey.GetBaseWord();
-      Assert.AreEqual(false, testOutput);
+      Assert.AreEqual("Turkey", testOutput);
     }
+
     [TestMethod]
     public void  BaseToArray_MakeArray_True()
     {
@@ -30,14 +28,33 @@ namespace Anagrams.Tests
       char[] testOutput = testMonkey.BaseToArray("Turkey");
       CollectionAssert.AreEqual(TurkArray, testOutput);
     }
-    // [TestMethod]
-    // public void IsDivThree_DivisableBy_False()
-    // {
-    //   int Testint = 2;
-    //   PingPong testPong = new PingPong();
-    //   Assert.AreEqual(false, testPong.IsDiv(Testint));
-    // }
-    //
 
+    [TestMethod]
+    public void  BaseToLowerArray_MakeArrayLower_True()
+    {
+      string TestTurkey2 = "turkey";
+      char[] TurkArray2 = TestTurkey2.ToCharArray();
+      Anagram testMonkey2 = new Anagram();
+      char[] testOutput2 = testMonkey2.BaseToLowerArray("TURKEy");
+      CollectionAssert.AreEqual(TurkArray2, testOutput2);
+    }
+    [TestMethod]
+    public void  SortBaseArray_BaseSorted_False()
+    {
+      string TestFerret = "ferret";
+      char[] FerretArray = TestFerret.ToCharArray();
+      Anagram testMonkey3 = new Anagram();
+      char[] testOutput3 = testMonkey3.SortBaseArray("TURKEy");
+      CollectionAssert.AreEqual(FerretArray, testOutput3);
+    }
+    [TestMethod]
+    public void  SortBaseArray_BaseSorted_True()
+    {
+      string TestFerret2 = "eefrrt";
+      char[] FerretArray2 = TestFerret2.ToCharArray();
+      Anagram testMonkey4 = new Anagram();
+      char[] testOutput4 = testMonkey4.SortBaseArray("FERRET");
+      CollectionAssert.AreEqual(FerretArray2, testOutput4);
+    }
   }
 }

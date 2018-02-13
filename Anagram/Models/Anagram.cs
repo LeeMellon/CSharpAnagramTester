@@ -42,7 +42,18 @@ namespace Anagrams.Models
         return BaseWordArray;
       }
 
+      public char[] BaseToLowerArray(string baseWord)
+      {
+        char[] BaseWordArray = baseWord.ToLower().ToCharArray();
+        return BaseWordArray;
+      }
 
+      public char[] SortBaseArray(string baseWord)
+      {
+        char[] BaseWordArray = baseWord.ToLower().ToCharArray();
+        Array.Sort(BaseWordArray);
+        return BaseWordArray;
+      }
     }
 
 }
