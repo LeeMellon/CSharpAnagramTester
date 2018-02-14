@@ -10,12 +10,6 @@ namespace Anagrams.Models
       private char[] _baseWord;
       private List<char[]> _comparisonWords;
 
-      // public Anagram(string baseWord, List<string> comparisonWords)
-      // {
-      //   _baseWord = baseWord;
-      //   _comparisonWords = comparisonWords;
-      // }
-
       public void SetBaseWord(char[] newBaseWord)
       {
         _baseWord = newBaseWord;
@@ -24,6 +18,11 @@ namespace Anagrams.Models
       public char[] GetBaseWord()
       {
         return _baseWord;
+      }
+
+      public List<char[]> GetComparisonWords()
+      {
+        return _comparisonWords;
       }
 
       public List<char[]> SetComparisonWords(List<string> ComparisonWords)
@@ -39,23 +38,6 @@ namespace Anagrams.Models
           return _comparisonWords;
        }
 
-      public List<char[]> GetComparisonWords()
-      {
-        return _comparisonWords;
-      }
-      //
-      // public char[] BaseToArray(string baseWord)
-      // {
-      //   char[] BaseWordArray = baseWord.ToCharArray();
-      //   return BaseWordArray;
-      // }
-      //
-      // public char[] BaseToLowerArray(string baseWord)
-      // {
-      //   char[] BaseWordArray = baseWord.ToLower().ToCharArray();
-      //   return BaseWordArray;
-      // }
-
       public char[] SetBaseArray(string baseWord)
       {
         char[] BaseWordArray = baseWord.ToLower().ToCharArray();
@@ -69,10 +51,8 @@ namespace Anagrams.Models
         List<string> ActualAnagrams = new List<string>();
         for (int x = 0; x < ComparisonWords.Count; x++)
         {
-          Console.WriteLine(ComparisonWords[x]);
           if (baseWord.SequenceEqual(ComparisonWords[x]))
           {
-            Console.WriteLine("here2");
             ActualAnagrams.Add(OriginalWords[x]);
           }
         }

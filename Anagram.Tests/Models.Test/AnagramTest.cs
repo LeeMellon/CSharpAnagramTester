@@ -9,7 +9,6 @@ namespace Anagrams.Tests
   public class AnagramTest
   {
 
-
     // [TestMethod]
     // public void  BaseToArray_CompareWord_True()
     // {
